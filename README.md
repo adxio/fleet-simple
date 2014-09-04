@@ -1,4 +1,4 @@
-fleet-simple
+Simple Fleet Monitoring
 ============
 
 Simple Fleet Monitoring
