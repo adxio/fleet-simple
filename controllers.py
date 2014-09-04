@@ -1,17 +1,17 @@
 from flask import Blueprint, jsonify
 from datatruck import Truck
 
-car = Blueprint('mobil',__name__)
+car = Blueprint('mobil',__name__, url_prefix='/fleet/truck')
 
 truk = Truck()
 asli = truk.state()
 jml = len(asli)
-apiname ='/fleet'
-@car.route(apiname+'/truck/state')
+
+@car.route('/state')
 def state():
     return jsonify(responses={'status_code':200,'message':'running'},output=asli)
 
-@car.route(apiname+'/truck/position')
+@car.route('/position')
 def position():
     data = {
         'status_code':200,
@@ -43,7 +43,7 @@ def position():
         asli[i] = pros
     return jsonify(responses=data,data=asli,vehicle=jml)
 
-@car.route(apiname+'/truck/load')
+@car.route('/load')
 def load():
     pulang = []
     for i in range(0,jml):
@@ -63,7 +63,7 @@ def load():
     }
     return jsonify(response=res,data=pulang)
 
-@car.route(apiname+'/truck/dump')
+@car.route('/dump')
 def dump():
     pulang = []
     for i in range(0,jml):
@@ -83,7 +83,7 @@ def dump():
     }
     return jsonify(response=res,data=pulang)
 
-@car.route(apiname+'/truck/test')
+@car.route('/test')
 def tes(env, start_response):
-    start_response('200 OK', [('Content-Type','text/html')])
+    start_response('200 OK', [('Content-Type','application/json')])
     return [b"Hello World"]
