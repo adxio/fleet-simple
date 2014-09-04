@@ -3,26 +3,41 @@ Simple Fleet Monitoring
 
 This is one simple modul of any particular modul on current project.
 
+##  Config
 
-To stop service
-<br/>supervisorctl stop name
-<br/>example :
-<br/>supervisorctl stop nakamichikun_app
+1.  Reload
+    ```
+    supervisorctl reread
+    ```
 
-<br/><br/>To start service
-<br/>supervisorctl start name
-<br/>example :
-<br/>supervisorctl start nakamichikun_app
+2.  Path file runner
+    ```
+    /opt/apsi/nakamichikun_app/app_venv/bin/starter.sh
+    ```
 
-<br/><br/>To restart service running
-<br/>supervisorctl update
+3.  File config supervisor
+    ```
+    /etc/supervisor/conf.d/app_name.conf 
+    /etc/supervisor/conf.d/nakamichikun_app.conf 
+    ```
 
-<br/><br/>To reload configuration file
-<br/>supervisorctl reread
+##  Service
 
-<br/><br/>Path of file runner on supervisor
-<br/>/opt/apsi/nakamichikun_app/app_venv/bin/starter.sh
-
-<br/><br/>Path of file configuration to supervisor
-<br/>/etc/supervisor/conf.d/app_name.conf 
-<br/>/etc/supervisor/conf.d/nakamichikun_app.conf 
+1.  Start
+    supervisorctl start app_name
+    example :
+    ```
+    supervisorctl start nakamichikun_app
+    ```
+  
+2.  Stop
+    supervisorctl stop app_name
+    example :
+    ```
+    supervisorctl stop nakamichikun_app
+    ```
+  
+3.  Restart
+    ```
+    supervisorctl update
+    ```
