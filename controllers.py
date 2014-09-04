@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify
 from datatruck import Truck
 
-car = Blueprint('mobil',__name__, url_prefix='/fleet/truck')
+car = Blueprint('fleet',__name__, url_prefix='/fleet/truck')
 
 truk = Truck()
 asli = truk.state()
